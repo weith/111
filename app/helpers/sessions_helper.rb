@@ -9,7 +9,11 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user || user_from_remember_token
+    @current_user ||= user_from_remember_token
+  end
+
+  def sign_in?
+    !current_user.nil?
   end
 
   private
